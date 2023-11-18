@@ -43,10 +43,13 @@ export const App = () => {
         if (requestedImages.hits.length === 0) {
           toast.error('There are no results for your request');
           return;
-        };
-        
-        setImages(prevImages => prevImages.length === 0 ? requestedImages.hits : [...prevImages, ...requestedImages.hits]);
+        }
 
+        setImages(prevImages =>
+          prevImages.length === 0
+            ? requestedImages.hits
+            : [...prevImages, ...requestedImages.hits]
+        );
       } catch (error) {
         toast.error('Ooops! Something went wrong. Try reloading page!');
       } finally {
